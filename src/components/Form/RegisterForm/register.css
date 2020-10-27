@@ -1,3 +1,27 @@
 .register {
-  margin: 0 50px;
+  width: 64%;
+  margin: auto;
+  border: 1px solid lightgray;
+  padding: 20px;
+}
+.register h2 {
+  text-align: center;
+}
+.register__field {
+  margin: 30px 0;
+}
+.register__input {
+  width: 100%;
+  border: 1px solid lightgray;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.error {
+  border: 1px solid #e15454;
+}
+
+.register__error {
+  color: #e15454;
 }

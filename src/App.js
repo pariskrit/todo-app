@@ -12,7 +12,7 @@ function App() {
       <div className="app">
         <h1>Todo App</h1>
         <div className="app__child">
-          <Sidebars />
+          {/* <Sidebars /> */}
           <Switch>
             <Route exact path="/">
               {/* <TodoList title="Today" /> */}

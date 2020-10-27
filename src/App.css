@@ -9,7 +9,8 @@
 
 .app h1 {
   text-align: center;
-  margin: 100px 0;
+  margin-bottom: 100px;
+  margin-top: 30px;
 }
 
 .app__child {
