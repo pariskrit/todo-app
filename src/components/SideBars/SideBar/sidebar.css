@@ -1,0 +1,19 @@
+.sidebar {
+  padding: 10px 30px;
+  display: flex;
+}
+
+.sidebar p {
+  margin-left: 5px;
+}
+
+.sidebar:hover {
+  cursor: pointer;
+  background-color: #ccb6c7;
+  transition: background-color ease-in-out 200ms;
+  border-radius: 10px;
+}
+
+.selected {
+  font-weight: 700;
+}

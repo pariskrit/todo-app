@@ -1,0 +1,33 @@
+.todolist {
+  text-align: center;
+  padding: 20px;
+  margin-left: 50px;
+  margin-top: 40px;
+  width: 60%;
+}
+
+.todolist__header {
+  margin: 50px 0;
+  width: 90%;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.todolist__header p {
+  color: #a78d8d;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+.todolist__addtodo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 70px;
+}
+
+.todolist__addtodo:hover {
+  cursor: pointer;
+}
