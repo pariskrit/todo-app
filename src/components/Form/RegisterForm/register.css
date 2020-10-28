@@ -25,3 +25,15 @@
 .register__error {
   color: #e15454;
 }
+
+.register__buttondisable {
+  padding: 8px;
+
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  cursor: not-allowed !important;
+  background-color: lightgray;
+  opacity: 0.8;
+  outline: none !important;
+}

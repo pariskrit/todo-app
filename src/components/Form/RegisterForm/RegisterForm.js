@@ -4,7 +4,7 @@ import useForm from "../../../customhooks/useForm/useForm";
 import { Button } from "react-bootstrap";
 
 const RegisterForm = () => {
-  const { values, handleChange, error } = useForm({
+  const { values, handleChange, error, formValidate } = useForm({
     name: "",
     email: "",
     password: "",
@@ -12,6 +12,7 @@ const RegisterForm = () => {
 
   function register(e) {
     e.preventDefault();
+
     console.log(values);
   }
 
@@ -27,9 +28,9 @@ const RegisterForm = () => {
             name="name"
             value={values.name}
             onChange={handleChange}
-            className={`register__input ${error.name && "error"}`}
+            className={`register__input ${error.name.name && "error"}`}
           />
-          <p className="register__error">{error.name}</p>
+          <p className="register__error">{error.name.name}</p>
         </div>
 
         <div className="register__field">
@@ -40,9 +41,9 @@ const RegisterForm = () => {
             name="email"
             value={values.email}
             onChange={handleChange}
-            className={`register__input ${error.email && "error"}`}
+            className={`register__input ${error.email.email && "error"}`}
           />
-          <p className="register__error">{error.email}</p>
+          <p className="register__error">{error.email.email}</p>
         </div>
         <div className="register__field">
           <b>password:</b>
@@ -52,12 +53,19 @@ const RegisterForm = () => {
             name="password"
             value={values.password}
             onChange={handleChange}
-            className="register__input"
+            className={`register__input ${error.password.password && "error"}`}
           />
+          <p className="register__error">{error.password.password}</p>
         </div>
-        <Button variant="primary" type="submit">
-          Register
-        </Button>
+        {!formValidate ? (
+          <button type="button" className="register__buttondisable">
+            register
+          </button>
+        ) : (
+          <Button variant="primary" type="submit">
+            Register
+          </Button>
+        )}
       </form>
     </div>
   );
