@@ -6,7 +6,7 @@ import Modal from "../../UI/Modal/Modals";
 import Todo from "./Todo/Todo";
 import FlipMove from "react-flip-move";
 import { connect } from "react-redux";
-import * as actionCreators from "../../store/actions/actionCreators";
+import * as actionCreators from "../../store/actions";
 import useHandleTodoState from "../../customhooks/useHandleTodoState/useHandleTodoState";
 import Spinner from "react-bootstrap/Spinner";
 import useDate from "../../customhooks/useDate/useDate";
@@ -131,10 +131,10 @@ function Todolists(props) {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todayTodos,
-    tomTodos: state.tomorrowTodos,
-    isLoading: state.isLoading,
-    sucess: state.sucess,
+    todos: state.todos.todayTodos,
+    tomTodos: state.todos.tomorrowTodos,
+    isLoading: state.todos.isLoading,
+    sucess: state.todos.sucess,
   };
 };
 

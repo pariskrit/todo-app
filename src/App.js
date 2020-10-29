@@ -12,13 +12,16 @@ function App() {
       <div className="app">
         <h1>Todo App</h1>
         <div className="app__child">
-          {/* <Sidebars /> */}
           <Switch>
             <Route exact path="/">
-              {/* <TodoList title="Today" /> */}
               <Form />
             </Route>
+            <Route path="/today">
+              <Sidebars />
+              <TodoList title="Today" />
+            </Route>
             <Route path="/tomorrow">
+              <Sidebars />
               <TodoList title="Tomorrow" />
             </Route>
           </Switch>

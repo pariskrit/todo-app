@@ -93,48 +93,9 @@ export const saveTomTodoAsync = (data) => {
         dispatch(isLoading(false));
         dispatch(isSuccess(true));
       })
-      .catch((error) => console.log(error));
-  };
-};
-
-export const loginUser = (user) => {
-  return {
-    type: actionTypes.LOGIN_USER,
-    payLoad: user,
-  };
-};
-
-export const loginUserAsync = (user) => {
-  return (dispatch) => {
-    db.collection("users")
-      .doc(`${user.name}`)
-      .get()
-      .then((doc) => {
-        console.log(doc.data());
-        dispatch(loginUser(doc.data()));
-      })
       .catch((error) => {
         console.log(error);
       });
-  };
-};
-
-const registerUser = (data) => {
-  return {
-    type: actionTypes.REGISTER_USER,
-    payLoad: data,
-  };
-};
-
-export const registerUserAsync = (user) => {
-  return (dispatch) => {
-    db.collection("users")
-      .doc(`${user.name}`)
-      .set({ info: user }, { merge: true })
-      .then((res) => {
-        dispatch(registerUser(user));
-      })
-      .catch((error) => console.log(error));
   };
 };
 

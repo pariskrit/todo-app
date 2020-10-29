@@ -7,7 +7,7 @@ import DateRangeIcon from "@material-ui/icons/DateRange";
 function Sidebars() {
   return (
     <div className="sidebars">
-      <Sidebar title="Today" Icon={TodayIcon} path="/" selected />
+      <Sidebar title="Today" Icon={TodayIcon} path="/today" selected />
       <Sidebar title="Tomorrow" Icon={DateRangeIcon} path="/tomorrow" />
     </div>
   );

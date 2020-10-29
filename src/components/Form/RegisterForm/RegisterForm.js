@@ -2,7 +2,7 @@ import React from "react";
 import "./register.css";
 import useForm from "../../../customhooks/useForm/useForm";
 import { Button } from "react-bootstrap";
-import * as actionCreators from "../../../store/actions/actionCreators";
+import * as actionCreators from "../../../store/actions";
 import { connect } from "react-redux";
 
 const RegisterForm = (props) => {
