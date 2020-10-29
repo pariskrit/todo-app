@@ -1,8 +1,6 @@
 .register {
   width: 64%;
   margin: auto;
-  border: 1px solid lightgray;
-  padding: 20px;
 }
 .register h2 {
   text-align: center;

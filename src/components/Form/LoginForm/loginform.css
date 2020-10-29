@@ -1,0 +1,20 @@
+.loginform {
+  width: 64%;
+  margin: auto;
+}
+
+.loginform h2 {
+  text-align: center;
+}
+
+.login__field {
+  margin: 30px 0;
+}
+
+.login__input {
+  width: 100%;
+  border: 1px solid lightgray;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}

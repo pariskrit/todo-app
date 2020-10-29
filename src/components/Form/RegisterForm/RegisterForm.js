@@ -2,8 +2,10 @@ import React from "react";
 import "./register.css";
 import useForm from "../../../customhooks/useForm/useForm";
 import { Button } from "react-bootstrap";
+import * as actionCreators from "../../../store/actions/actionCreators";
+import { connect } from "react-redux";
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
   const { values, handleChange, error, formValidate } = useForm({
     name: "",
     email: "",
@@ -13,7 +15,7 @@ const RegisterForm = () => {
   function register(e) {
     e.preventDefault();
 
-    console.log(values);
+    props.register(values);
   }
 
   return (
@@ -71,4 +73,10 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    register: (user) => dispatch(actionCreators.registerUserAsync(user)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(RegisterForm);

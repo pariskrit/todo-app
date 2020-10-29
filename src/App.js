@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Sidebars from "./components/SideBars/Sidebars";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import RegisterForm from "./components/Form/RegisterForm/RegisterForm";
+import Form from "./components/Form/Form";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Switch>
             <Route exact path="/">
               {/* <TodoList title="Today" /> */}
-              <RegisterForm />
+              <Form />
             </Route>
             <Route path="/tomorrow">
               <TodoList title="Tomorrow" />
