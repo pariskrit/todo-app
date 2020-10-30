@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Login from "./LoginForm/LoginForm";
 import Register from "./RegisterForm/RegisterForm";
 import "./form.css";
 
 function Form() {
   const [toggle, setToggle] = useState(true);
+
+  useEffect(() => {
+    console.log("form rendered");
+  }, []);
 
   return (
     <div className="form">

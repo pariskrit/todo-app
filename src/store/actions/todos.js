@@ -14,10 +14,10 @@ const addTodo = (data) => {
   };
 };
 
-export const saveTodoAsync = (data) => {
+export const saveTodoAsync = (data, user) => {
   return (dispatch) => {
     db.collection("users")
-      .doc("pari")
+      .doc(`${user}`)
       .set({ todo: data }, { merge: true })
       .then((res) => {
         dispatch(addTodo(data));
@@ -34,15 +34,20 @@ const getTodo = (data) => {
   };
 };
 
-export const getTodoAsync = () => {
+export const getTodoAsync = (user) => {
   return (dispatch) => {
     dispatch(isLoading(true));
     db.collection("users")
-      .doc("pari")
+      .doc(`${user}`)
       .get()
       .then((doc) => {
-        dispatch(getTodo(doc.data()));
-        dispatch(isLoading(false));
+        if (doc.data().todo) {
+          dispatch(getTodo(doc.data()));
+          dispatch(isLoading(false));
+        } else {
+          dispatch(getTodo({ todo: [] }));
+          dispatch(isLoading(false));
+        }
       })
       .catch((error) => {
         dispatch(isLoading(false));
@@ -58,15 +63,20 @@ const getTomTodo = (data) => {
   };
 };
 
-export const getTomTodoAsync = () => {
+export const getTomTodoAsync = (user) => {
   return (dispatch) => {
     dispatch(isLoading(true));
     db.collection("users")
-      .doc("pari")
+      .doc(`${user}`)
       .get()
       .then((doc) => {
-        dispatch(getTomTodo(doc.data()));
-        dispatch(isLoading(false));
+        if (doc.data().tomTodo) {
+          dispatch(getTomTodo(doc.data()));
+          dispatch(isLoading(false));
+        } else {
+          dispatch(getTomTodo({ tomTodo: [] }));
+          dispatch(isLoading(false));
+        }
       })
       .catch((error) => {
         dispatch(isLoading(false));
@@ -81,12 +91,12 @@ const saveTomTodo = (data) => {
     payLoad: data,
   };
 };
-export const saveTomTodoAsync = (data) => {
+export const saveTomTodoAsync = (data, user) => {
   return (dispatch) => {
     console.log(data);
     dispatch(isLoading(true));
     db.collection("users")
-      .doc("pari")
+      .doc(`${user}`)
       .set({ tomTodo: data }, { merge: true })
       .then((res) => {
         dispatch(saveTomTodo(data));
@@ -94,6 +104,7 @@ export const saveTomTodoAsync = (data) => {
         dispatch(isSuccess(true));
       })
       .catch((error) => {
+        // dispatch(saveTomTodo([]))
         console.log(error);
       });
   };

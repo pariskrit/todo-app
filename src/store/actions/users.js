@@ -56,14 +56,29 @@ const registerUser = (data) => {
   };
 };
 
-export const registerUserAsync = (user) => {
+export const registerUserAsync = (user, history) => {
   return (dispatch) => {
+    dispatch(isLoading(true));
     db.collection("users")
       .doc(`${user.name}`)
       .set({ info: user }, { merge: true })
       .then((res) => {
-        dispatch(registerUser(user));
+        dispatch(registerUser(user.name));
+        dispatch(isLoading(false));
+        history.push("/today");
       })
       .catch((error) => console.log(error));
+  };
+};
+
+const logout = () => {
+  return {
+    type: actionTypes.LOGOUT_USER,
+  };
+};
+
+export const logoutAsync = () => {
+  return (dispatch) => {
+    dispatch(logout());
   };
 };

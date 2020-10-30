@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useForm from "../../../customhooks/useForm/useForm";
 import "./loginform.css";
 import { connect } from "react-redux";
@@ -13,7 +13,12 @@ function LoginForm(props) {
     name: "",
     password: "",
   });
+
   const history = useHistory();
+
+  useEffect(() => {
+    console.log("loginform rendered");
+  }, []);
 
   const login = (e) => {
     e.preventDefault();
@@ -21,7 +26,7 @@ function LoginForm(props) {
   };
   return (
     <div className="loginform">
-      <h2>LogIn Form</h2>
+      <h2>LogIn Form </h2>
       {props.isLoading ? (
         <Spinner animation="border" style={{ margin: "80px 200px" }} />
       ) : (

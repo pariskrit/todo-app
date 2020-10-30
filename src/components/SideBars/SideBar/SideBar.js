@@ -1,12 +1,14 @@
 import React from "react";
 import "./sidebar.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actionCreators from "../../../store/actions";
 
-function SideBar({ title, selected, changeSelect, Icon, path }) {
+function SideBar({ title, selected, changeSelect, Icon, path, ...rest }) {
   return (
     <Link
       className={selected ? "sidebar selected" : "sidebar"}
-      onClick={changeSelect}
+      onClick={title === "LogOut" ? rest.logout : null}
       to={path}
     >
       <Icon />
@@ -15,4 +17,10 @@ function SideBar({ title, selected, changeSelect, Icon, path }) {
   );
 }
 
-export default SideBar;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(actionCreators.logoutAsync()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(SideBar);

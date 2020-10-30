@@ -1,4 +1,4 @@
-export { loginUserAsync, registerUserAsync } from "./users";
+export { loginUserAsync, registerUserAsync, logoutAsync } from "./users";
 export {
   getTodoAsync,
   saveTodoAsync,

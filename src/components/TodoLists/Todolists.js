@@ -25,10 +25,10 @@ function Todolists(props) {
     setDate(new Date(), props.title === "Tomorrow" ? "tomorrow" : null);
 
     if (props.title === "Today") {
-      props.getTodos();
+      props.getTodos(props.user);
     }
     if (props.title === "Tomorrow") {
-      props.getTomTodo();
+      props.getTomTodo(props.user);
     }
     return () => {
       console.log("unmount");
@@ -38,7 +38,7 @@ function Todolists(props) {
   useEffect(() => {
     const todos =
       props.title === "Tomorrow" ? [...props.tomTodos] : [...props.todos];
-
+    console.log(todos);
     setTodolist([...todos]);
   }, [props.todos, props.tomTodos]);
 
@@ -101,8 +101,8 @@ function Todolists(props) {
           variant="primary"
           onClick={() =>
             props.title === "Tomorrow"
-              ? props.saveTomTodo([...todolist])
-              : props.saveTodos([...todolist])
+              ? props.saveTomTodo([...todolist], props.user)
+              : props.saveTodos([...todolist], props.user)
           }
         >
           Save
@@ -135,15 +135,18 @@ const mapStateToProps = (state) => {
     tomTodos: state.todos.tomorrowTodos,
     isLoading: state.todos.isLoading,
     sucess: state.todos.sucess,
+    user: state.users.user,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveTodos: (data) => dispatch(actionCreators.saveTodoAsync(data)),
-    getTodos: () => dispatch(actionCreators.getTodoAsync()),
-    saveTomTodo: (data) => dispatch(actionCreators.saveTomTodoAsync(data)),
-    getTomTodo: () => dispatch(actionCreators.getTomTodoAsync()),
+    saveTodos: (data, user) =>
+      dispatch(actionCreators.saveTodoAsync(data, user)),
+    getTodos: (user) => dispatch(actionCreators.getTodoAsync(user)),
+    saveTomTodo: (data, user) =>
+      dispatch(actionCreators.saveTomTodoAsync(data, user)),
+    getTomTodo: (user) => dispatch(actionCreators.getTomTodoAsync(user)),
     isSucess: () => dispatch(actionCreators.isSuccess(false)),
   };
 };

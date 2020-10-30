@@ -5,8 +5,10 @@ import "./App.css";
 import Sidebars from "./components/SideBars/Sidebars";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Form from "./components/Form/Form";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
-function App() {
+function App(props) {
   return (
     <Router>
       <div className="app">
@@ -17,12 +19,24 @@ function App() {
               <Form />
             </Route>
             <Route path="/today">
-              <Sidebars />
-              <TodoList title="Today" />
+              {props.user ? (
+                <>
+                  <Sidebars />
+                  <TodoList title="Today" />
+                </>
+              ) : (
+                <Redirect to="/" />
+              )}
             </Route>
             <Route path="/tomorrow">
-              <Sidebars />
-              <TodoList title="Tomorrow" />
+              {props.user ? (
+                <>
+                  <Sidebars />
+                  <TodoList title="Tomorrow" />
+                </>
+              ) : (
+                <Redirect to="/" />
+              )}
             </Route>
           </Switch>
         </div>
@@ -31,4 +45,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.users.user,
+  };
+};
+
+export default connect(mapStateToProps)(App);

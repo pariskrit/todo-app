@@ -28,6 +28,11 @@ export const userReducer = (state = initialState, action) => {
         ...state,
         isError: action.payLoad,
       };
+    case actionTypes.LOGOUT_USER:
+      return {
+        ...state,
+        user: null,
+      };
     default:
       return state;
   }
