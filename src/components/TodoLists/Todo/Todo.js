@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import EditIcon from "@material-ui/icons/Edit";
 
 const Todo = forwardRef((props, ref) => {
-  const { todo, deleteTodo, showEditModal, hello } = props;
+  const { todo, deleteTodo, showEditModal } = props;
   return (
     <div className="todo" ref={ref}>
       <li>{todo.task}</li>
