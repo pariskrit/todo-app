@@ -35,6 +35,7 @@ const getTodo = (data) => {
 };
 
 export const getTodoAsync = (user) => {
+  console.log(user);
   return (dispatch) => {
     dispatch(isLoading(true));
     db.collection("users")

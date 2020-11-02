@@ -1,33 +1,81 @@
 .todolist {
   text-align: center;
-  padding: 20px;
-  margin-left: 50px;
 
-  width: 60%;
+  width: 100%;
 }
 
 .todolist__header {
-  margin-bottom: 50px;
-  width: 90%;
+  width: 100%;
   display: flex;
   align-items: baseline;
   justify-content: center;
 }
 
+.todolist__header h3 {
+  font-size: 1rem;
+}
 .todolist__header p {
+  font-size: 0.6rem;
   color: #a78d8d;
-  font-size: 0.8rem;
+
   margin-left: 5px;
 }
 
 .todolist__addtodo {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  margin-top: 70px;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-.todolist__addtodo:hover {
-  cursor: pointer;
+.todolist__addtodo Button {
+  width: 40%;
+  font-size: 0.7rem;
+}
+
+.todolist__display h4 {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 768px) {
+  .todolist {
+    text-align: center;
+    padding: 20px;
+    margin-left: 50px;
+
+    width: 60%;
+  }
+
+  .todolist__header {
+    margin-bottom: 50px;
+    width: 90%;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+  }
+
+  .todolist__header p {
+    color: #a78d8d;
+    font-size: 0.8rem;
+    margin-left: 5px;
+  }
+
+  .todolist__addtodo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 70px;
+  }
+  .todolist__addtodo Button {
+    width: 40%;
+    font-size: 1rem;
+  }
+
+  .todolist__addtodo:hover {
+    cursor: pointer;
+  }
+  .todolist__display h4 {
+    font-size: 2rem;
+  }
 }

@@ -26,7 +26,7 @@ function LoginForm(props) {
   };
   return (
     <div className="loginform">
-      <h2>LogIn Form </h2>
+      <h2>LogIn </h2>
       {props.isLoading ? (
         <Spinner animation="border" style={{ margin: "80px 200px" }} />
       ) : (
