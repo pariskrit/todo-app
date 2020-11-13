@@ -28,3 +28,10 @@
     display: flex;
   }
 }
+
+@media (max-width: 1000px) {
+  .app {
+    width: 90%;
+    margin: auto;
+  }
+}

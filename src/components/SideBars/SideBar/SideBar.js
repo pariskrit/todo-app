@@ -1,15 +1,16 @@
 import React from "react";
 import "./sidebar.css";
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../../../store/actions";
 
-function SideBar({ title, selected, changeSelect, Icon, path, ...rest }) {
+function SideBar({ title, selected, Icon, to, activeOnlyWhenExact, ...rest }) {
+  let match = useRouteMatch({ path: to, exact: activeOnlyWhenExact });
   return (
     <Link
-      className={selected ? "sidebar selected" : "sidebar"}
+      className={match ? "sidebar selected" : "sidebar"}
       onClick={title === "LogOut" ? rest.logout : null}
-      to={path}
+      to={to}
     >
       <Icon />
       <p>{title}</p>

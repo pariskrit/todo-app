@@ -20,7 +20,7 @@ export const loginUserAsync = (user, history) => {
         if (user.name === dbData.name && user.password === dbData.password) {
           dispatch(loginUser(doc.data()));
           dispatch(isLoading(false));
-          history.push("/today");
+          history.push("/today/12");
         } else {
           dispatch(isLoading(false));
           dispatch(isError(true));

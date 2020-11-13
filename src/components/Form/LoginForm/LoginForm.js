@@ -8,7 +8,7 @@ import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router-dom";
 
-function LoginForm(props) {
+export function LoginForm(props) {
   const { values, handleChange } = useForm({
     name: "",
     password: "",

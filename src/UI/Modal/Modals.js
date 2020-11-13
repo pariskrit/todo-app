@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -14,6 +14,10 @@ function Modals(props) {
     editTodo,
     ...rest
   } = props;
+
+  useEffect(() => {
+    console.log("modal rendered");
+  });
 
   return showAddModal ? (
     <Modal
@@ -72,4 +76,4 @@ function Modals(props) {
   );
 }
 
-export default Modals;
+export default React.memo(Modals);

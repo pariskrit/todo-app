@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Todo from "./Todo/Todo";
 import FlipMove from "react-flip-move";
@@ -6,8 +6,14 @@ import Button from "react-bootstrap/Button";
 import Sucess from "../../UI/Alert/sucess";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
+import { useParams, useLocation } from "react-router-dom";
 
 function Today(props) {
+  const { id } = useParams();
+  let location = useLocation();
+  useEffect(() => {
+    console.log("today rendered " + id + " in " + location.pathname);
+  });
   return (
     <>
       <div className="todolist__header">

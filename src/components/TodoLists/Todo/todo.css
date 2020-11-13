@@ -15,4 +15,26 @@
 
 .todo__buttons Button {
   margin: 0 5px;
+  padding: 1px 5px !important;
+}
+
+@media (min-width: 768px) {
+  .todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    background-color: #bcbaba;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .todo__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  .todo__buttons Button {
+    margin: 0 5px;
+  }
 }
