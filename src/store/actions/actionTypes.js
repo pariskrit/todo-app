@@ -9,3 +9,8 @@ export const ADD_TOM_TODOS = "ADD_TOM_TODOS";
 export const IS_LOADING = "IS_LOADING";
 
 export const SUCCESSFULL = "SUCCESSFULL";
+
+export const LOGIN_USER = "LOGIN_USER";
+export const REGISTER_USER = "REGISTER_USER";
+export const LOGIN_USER_ERROR = "LOGIN_USER_ERROR";
+export const LOGOUT_USER = "LOGOUT_USER";
