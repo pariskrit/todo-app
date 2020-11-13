@@ -2,6 +2,9 @@
   text-align: center;
   padding: 10px;
   width: 100%;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
 }
 
 .todolist__header {
@@ -16,8 +19,6 @@
 }
 .todolist__header p {
   font-size: 0.6rem;
-  color: #a78d8d;
-
   margin-left: 5px;
 }
 
@@ -55,7 +56,7 @@
   }
 
   .todolist__header p {
-    color: #a78d8d;
+    color: rgb(97, 82, 84);
     font-size: 0.8rem;
     margin-left: 5px;
   }

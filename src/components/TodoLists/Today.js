@@ -37,7 +37,7 @@ function Today(props) {
         </FlipMove>
       ) : (
         <div className="todolist__display">
-          <h4 style={{ color: "#615254" }}>
+          <h4>
             Welcome {props.user}, What Is Your Plan For {props.title}!
           </h4>
         </div>
